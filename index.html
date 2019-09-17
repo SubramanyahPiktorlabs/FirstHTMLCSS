@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Index.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="Index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body class="body-main" onLoad="buildHtmlTable('#excelDataTable')">
+    <div class="layout-tab">
+        <div class=Nav-not>
+            <img class="img" src="C:\Users\Piktorlabs\Documents\HTML_Application1\jazz-text-3.svg" style="height:50px;width: 120px;">
+            <ul class="nav">
+                <li class="format hover-cursor-dashborad" id="Dashboard" onclick="dashboardOnclick()">Dashboard</li>
+                <li class="active format hover-cursor-service" id="Servicing" onclick="serviceOnclick()">Services</li>
+                <!-- <li><a href="#Services" class="active format" id="Servicing" onclick="serviceOnclick()">Services</a></li> -->
+            </ul> 
+        </div>
+        <div class="notification">
+            <img class="img" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-notifcation.svg">
+            <div class="img-hover">
+                <img class="img-login" alt="avatar"  src="C:\Users\Piktorlabs\Documents\HTML_Application1\images\login-person.jpg">
+                <div class="hover-popup">
+                    <div class="help">Help</div>
+                    <div class="feedback">Send Feedback</div>
+                    <div class="logout">Logout</div>
+                </div>
+            </div>            
+        </div>
+    </div>                
+    </div>
+    <div class="Service-tables">
+        <div class="left-div">
+            <div class="Rectangle-2">
+                <ul class="Home">
+                    <li><a href="#Back"><img class="image-back" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-back.svg"></a></li>
+                    <li><a href="#Home" style="color: #ed008c;font-size: 12px;font-weight: bold;">Home &#47 </a></li>
+                    <li><a href="#Services" style="padding-left: 4px;font-size: 12px;color: black;font-weight: bold;">Services</a></li>
+                </ul>              
+            </div>
+            <div class="services">
+                <div class="Service-Heading">
+                    <h2 style="font-size: 24px;">Services</h2>
+                </div>
+                <div class="Add-Service">
+                    <button type="button" class="btn btn-default Add-button-service" style="color:white;background-color: deeppink;border-radius: 100px;"><img class="image-add" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-add.svg"></span>Add Service</button>
+                </div>
+                <!-- style="color:white;background-color: deeppink; border-radius: 100px;" -->
+            </div>
+            <div class="Tables">
+                <div class="Search-Fiter">
+                    <div class="display-options">
+                        <div id="Box1" class="box genBox1 activediv" onclick="genBoxOnclick(this)">ALL</div>
+                        <div id="Box2" class="box genBox2" onclick="genBoxOnclick(this)">API</div>
+                        <div id="Box3" class="box genBox3" onclick="genBoxOnclick(this)">FUNCTION</div>
+                        <div id="Box4" class="box genBox4" onclick="genBoxOnclick(this)">WEBSITE</div>
+                    </div>
+                    <div class="Search">
+                        <input type="text" id="searching" name="search" class="searchtext" placeholder="Search.." style="display: none;">
+                        <img class="images" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-search.svg" onclick="displaySearch()">
+                        <span class="glyphicon glyphicon-filter images" style="color:#ed008c;"></span>
+                    </div>
+                </div>
+                <!-- <div>
+                    <br/>
+                </div> -->
+                <div class="STable">
+                <table id="excelDataTable" class="paginated">
+
+                </table> 
+                    <!-- <table id="dtBasic" class="paginated">
+                        <tr>
+                            <th class="theader">Name</th>
+                            <th class="theader">Type</th>
+                            <th class="theader">Domain</th>         
+                            <th class="theader">Last Modified</th>
+                            <th class="theader">Health</th>
+                            <th class="theader">Status</th>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service One</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">API</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Pecman</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot"></span></td>
+                            <td class="sixth-col" style="color: red; padding-top:13px;padding-bottom:12px;"">Pending Approval</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Two</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Function</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Could</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot"></span></td>
+                            <td class="sixth-col" style="color: red;padding-top:13px;padding-bottom:12px;"">Pending Approval</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Three</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Function</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Commerce</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot"></span></td>
+                            <td class="sixth-col" style="color: red;padding-top:13px;padding-bottom:12px;">Stopped</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Four</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Function</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Commerce</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Five</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Website</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Commerce</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Six</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Website</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Commerce</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Seven</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Website</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Platform</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Eight</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Website</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Platform</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Nine</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Website</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Platform</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:12px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr>
+                        <tr>
+                            <td class="first-col" style="padding-top:13px;padding-bottom:12px;">Service Ten</td>
+                            <td class="secong-col" style="padding-top:13px;padding-bottom:12px;">Website</td>
+                            <td class="third-col" style="padding-top:13px;padding-bottom:12px;">Platform</td>
+                            <td class="fourth-col" style="padding-top:13px;padding-bottom:12px;">10-10-17,11-59-59 PST</td>
+                            <td style="padding-top:13px;padding-bottom:13px;"><span class="dot2"></span></td>
+                            <td class="sixth-col" style="color: green;padding-top:13px;padding-bottom:12px;">Active</td>
+                        </tr> 
+                    </table> -->
+                </div>
+                <div class="paging">                
+                    <div class="left-arrow"><img class="image-back" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-back.svg"></div>
+                    <div class="paging-pading">1</div>
+                    <div class="paging-pading">2</div>
+                    <div class="paging-pading">3</div>
+                    <div class="right-arrow paging-pading"><img class="image-back" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-back (1).svg"></div>                    
+                </div>           
+            </div>
+        </div>
+        <div class="Right-Div">
+            <!-- <div> -->
+                <div class="ReAct">
+                    <!-- <div class="recent-act-outerbox"> -->
+                        <h4 class="Recent-Activity">RECENT ACTIVITIES</h4>
+                    <!-- </div> -->
+                </div>
+                <div class="notification-details" id="popup-hide">
+                    <div class="ind-notifications" onclick="alertDeplaymentClick(this)">
+                        <h4 class="notification-headers"><img class="images-right" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-alert.svg">&nbsp Alert Deployment Failed</h4>
+                        <p class="notification-content" id="alertDeplayment">Sed ut perspiciatis unde omnis iste natus error sit voluptetum accusantium aeriulacilcuynaircnyuritctrilkutehitthinilcywiperyi</p>
+                        <p class="notification-date">10-10-17 11:59:59 PST</p>
+                    </div>
+                    <br/>
+                    <div class="ind-notifications" onclick="alertDeplaymentClick(this)">
+                        <h4 class="notification-headers"><img class="images-right" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-pendingapproval.svg">&nbsp Pending approval</h4>
+                        <p class="notification-content" id="pendingApproval">Sed ut perspiciatis unde omnis iste natus error sit voluptetum accusantium 2</p>
+                        <p class="notification-date">10-10-17 11:59:59 PST</p>
+                    </div>
+                    <br/>
+                    <div class="ind-notifications" onclick="alertDeplaymentClick(this)">
+                        <h4 class="notification-headers"><img class="images-right" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-deployment.svg">&nbspProduction deployment</h4>
+                        <p class="notification-content" id="productionDeployment">Sed ut perspiciatis unde omnis iste natus error sit voluptetum accusantium 3</p>
+                        <p class="notification-date">10-10-17 11:59:59 PST</p>
+                    </div>
+                    <br/>
+                    <div class="ind-notifications" onclick="alertDeplaymentClick(this)">
+                        <h4 class="notification-headers"><img class="images-right" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-pendingapproval.svg">&nbsp Pending approval</h4>
+                        <p class="notification-content" id="pendingAprrovals">Sed ut perspiciatis unde omnis iste natus error sit voluptetum accusantium 4</p>
+                        <p class="notification-date">10-10-17 11:59:59 PST</p>
+                    </div>
+                    <br/>
+                    <div class="ind-notifications" onclick="alertDeplaymentClick(this)">
+                        <h4 class="notification-headers"><img class="images-right" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-alert.svg">&nbsp Alert Lorem Ipsum</h4>
+                        <p class="notification-content" id="alertLorem">Sed ut perspiciatis unde omnis iste natus error sit voluptetum accusantium 5</p>
+                        <p class="notification-date">10-10-17 11:59:59 PST</p>
+                    </div>
+                     <br/>
+                    <div class="ind-notifications" onclick="alertDeplaymentClick(this)">
+                        <h4 class="notification-headers"><img class="images-right" src="C:\Users\Piktorlabs\Documents\HTML_Application1\icon-alert.svg">&nbsp Alert Lorem Ipsum</h4>
+                        <p class="notification-content" id="alertLorem">Sed ut perspiciatis unde omnis iste natus error sit voluptetum accusantium 5</p>
+                        <p class="notification-date">10-10-17 11:59:59 PST</p>
+                    </div>
+                    <div class="display-all" id="notfication-display">
+                        <div class="w3-modal-content w3-card-4">
+                            <header class="w3-container w3-teal"> 
+                                <span onclick="document.getElementById('notfication-display').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                                <h2>Modal Header</h2>
+                            </header>
+                            <div class="model-body model-height">
+                                <p id="All-notification"></p>
+                            </div>
+                            <footer class="w3-container w3-teal">
+                                <p>Modal Footer</p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div>  -->
+        </div> 
+    </div>   
+</body>
+</html>
